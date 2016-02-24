@@ -1,0 +1,4 @@
+services:
+    hm_main.riotApi:
+        class: HM\MainBundle\RiotApi\HMRiotApi
+        arguments: [%riotApi_key%]

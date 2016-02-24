@@ -1,0 +1,10 @@
+hm_sync_summoner:
+    path: /sync/summoner/{region}/{id}
+    defaults: { _controller: HMMainBundle:Sync:syncSummoner}
+    requirements:
+        id: \d*
+hm_sync_match_recent:
+    path: /sync/matches/{region}/{id}
+    defaults: { _controller: HMMainBundle:Sync:syncMatches}
+    requirements:
+        id: \d*
