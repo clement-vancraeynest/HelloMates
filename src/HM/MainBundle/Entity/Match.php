@@ -53,17 +53,12 @@ class Match {
     private $assists;
 
     /**
-     * @ORM\Column(name="killContribution", type="integer")
-     */
-    private $killContribution;
-
-    /**
      * @ORM\Column(name="date", type="datetime")
      */
     private $date;
 
     /**
-     * @ORM\Column(name="gameLength", type="float")
+     * @ORM\Column(name="gameLength", type="time")
      */
     private $gameLength;
 
@@ -238,28 +233,6 @@ class Match {
      */
     public function getAssists() {
         return $this->assists;
-    }
-
-    /**
-     * Set killContribution
-     *
-     * @param integer $killContribution
-     *
-     * @return Match
-     */
-    public function setKillContribution($killContribution) {
-        $this->killContribution = $killContribution;
-
-        return $this;
-    }
-
-    /**
-     * Get killContribution
-     *
-     * @return integer
-     */
-    public function getKillContribution() {
-        return $this->killContribution;
     }
 
     /**

@@ -13,6 +13,8 @@ class HMRiotApi {
     public function __construct($apiKey) {
         if(isset($this->api)) return $api;
         $this->api = new Api($apiKey);
+//        $this->api->limit(10, 10);
+//        $this->api->limit(500, 600);
     }
     
     /**
