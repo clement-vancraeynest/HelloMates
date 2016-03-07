@@ -1,3 +1,32 @@
+#VIEW
+hm_view_index:
+    path: /
+    defaults: { _controller: HMMainBundle:Sync:index}
+hm_view_home:
+    path: /home
+    defaults: { _controller: HMMainBundle:Sync:home}
+hm_view_feed:
+    path: /feed/{userID}
+    defaults: { _controller: HMMainBundle:Sync:feed}
+    requirements:
+        userID: \d*
+hm_view_search:
+    path: /search/{region}/{summonerID}
+    defaults: { _controller: HMMainBundle:Sync:search}
+    requirements:
+        summonerID: \d*
+hm_view_profile:
+    path: /profile/{region}/{summonerID}
+    defaults: { _controller: HMMainBundle:Sync:profile}
+    requirements:
+        summonerID: \d*
+hm_view_signup:
+    path: /signup
+    defaults: { _controller: HMMainBundle:Sync:signup}
+hm_view_signin:
+    path: /signin
+    defaults: { _controller: HMMainBundle:Sync:signin}
+
 #SYNCHRONISATION
 hm_sync_summoner:
     path: /sync/summoner/{region}/{id}
@@ -12,6 +41,7 @@ hm_sync_match_recent:
 hm_sync_summoner_name:
     path: /sync/summoner/{region}/{name}
     defaults: { _controller: HMMainBundle:Sync:syncSummonerName}
+    
 #ACTIONS
 hm_action_follow:
     path: /{userID}/follow/{region}/{summonerID}
@@ -19,3 +49,10 @@ hm_action_follow:
     requirements:
         userID: \d*
         summonerID: \d*
+hm_action_unfollow:
+    path: /{userID}/unfollow/{region}/{summonerID}
+    defaults: { _controller: HMMainBundle:Action:unFollow}
+    requirements:
+        userID: \d*
+        summonerID: \d*
+        

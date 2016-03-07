@@ -442,3 +442,4 @@ be2033,::1,GET,http://localhost/HelloMates/web/app_dev.php/?XDEBUG_SESSION_START
 2748ed,::1,GET,http://localhost/HelloMates/web/app_dev.php/?XDEBUG_SESSION_START=netbeans-xdebug,1457379361,,200
 46ece5,::1,GET,http://localhost/HelloMates/web/app_dev.php/1/follow/euw/391484,1457379401,,200
 e3ecd1,::1,GET,http://localhost/HelloMates/web/app_dev.php/1/follow/euw/391484,1457379442,,200
+b41105,::1,GET,http://localhost/HelloMates/web/app_dev.php/1/unfollow/euw/391484,1457390361,,200
