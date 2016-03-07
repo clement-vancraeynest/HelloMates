@@ -1,3 +1,4 @@
+#SYNCHRONISATION
 hm_sync_summoner:
     path: /sync/summoner/{region}/{id}
     defaults: { _controller: HMMainBundle:Sync:syncSummoner}
@@ -8,3 +9,13 @@ hm_sync_match_recent:
     defaults: { _controller: HMMainBundle:Sync:syncMatches}
     requirements:
         id: \d*
+hm_sync_summoner_name:
+    path: /sync/summoner/{region}/{name}
+    defaults: { _controller: HMMainBundle:Sync:syncSummonerName}
+#ACTIONS
+hm_action_follow:
+    path: /{userID}/follow/{region}/{summonerID}
+    defaults: { _controller: HMMainBundle:Action:follow}
+    requirements:
+        userID: \d*
+        summonerID: \d*

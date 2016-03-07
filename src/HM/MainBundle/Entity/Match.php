@@ -5,7 +5,7 @@ namespace HM\MainBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="HM\MainBundle\Repository\MatchRepository")
  * @ORM\Table(name="hm_match")
  */
 class Match {

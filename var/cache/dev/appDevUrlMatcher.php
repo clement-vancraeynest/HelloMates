@@ -111,6 +111,16 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'hm_sync_match_recent')), array (  '_controller' => 'HM\\MainBundle\\Controller\\SyncController::syncMatchesAction',));
             }
 
+            // hm_sync_summoner_name
+            if (0 === strpos($pathinfo, '/sync/summoner') && preg_match('#^/sync/summoner/(?P<region>[^/]++)/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'hm_sync_summoner_name')), array (  '_controller' => 'HM\\MainBundle\\Controller\\SyncController::syncSummonerNameAction',));
+            }
+
+        }
+
+        // hm_action_follow
+        if (preg_match('#^/(?P<userID>\\d*)/follow/(?P<region>[^/]++)/(?P<summonerID>\\d*)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'hm_action_follow')), array (  '_controller' => 'HM\\MainBundle\\Controller\\ActionController::followAction',));
         }
 
         // homepage

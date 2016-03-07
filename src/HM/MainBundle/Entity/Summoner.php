@@ -5,7 +5,7 @@ namespace HM\MainBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="HM\MainBundle\Repository\SummonerRepository")
  * @ORM\Table(name="hm_summoner")
  */
 class Summoner {
