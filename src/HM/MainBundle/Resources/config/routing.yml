@@ -1,31 +1,31 @@
 #VIEW
 hm_view_index:
     path: /
-    defaults: { _controller: HMMainBundle:Sync:index}
+    defaults: { _controller: HMMainBundle:Default:index}
 hm_view_home:
     path: /home
-    defaults: { _controller: HMMainBundle:Sync:home}
+    defaults: { _controller: HMMainBundle:Default:home}
 hm_view_feed:
     path: /feed/{userID}
-    defaults: { _controller: HMMainBundle:Sync:feed}
+    defaults: { _controller: HMMainBundle:Default:feed}
     requirements:
         userID: \d*
 hm_view_search:
     path: /search/{region}/{summonerID}
-    defaults: { _controller: HMMainBundle:Sync:search}
+    defaults: { _controller: HMMainBundle:Default:search}
     requirements:
         summonerID: \d*
 hm_view_profile:
     path: /profile/{region}/{summonerID}
-    defaults: { _controller: HMMainBundle:Sync:profile}
+    defaults: { _controller: HMMainBundle:Default:profile}
     requirements:
         summonerID: \d*
 hm_view_signup:
     path: /signup
-    defaults: { _controller: HMMainBundle:Sync:signup}
+    defaults: { _controller: HMMainBundle:Default:signup}
 hm_view_signin:
     path: /signin
-    defaults: { _controller: HMMainBundle:Sync:signin}
+    defaults: { _controller: HMMainBundle:Default:signin}
 
 #SYNCHRONISATION
 hm_sync_summoner:

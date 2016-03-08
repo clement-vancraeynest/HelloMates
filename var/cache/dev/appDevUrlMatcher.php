@@ -106,39 +106,39 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->redirect($pathinfo.'/', 'hm_view_index');
             }
 
-            return array (  '_controller' => 'HM\\MainBundle\\Controller\\SyncController::indexAction',  '_route' => 'hm_view_index',);
+            return array (  '_controller' => 'HM\\MainBundle\\Controller\\DefaultController::indexAction',  '_route' => 'hm_view_index',);
         }
 
         // hm_view_home
         if ($pathinfo === '/home') {
-            return array (  '_controller' => 'HM\\MainBundle\\Controller\\SyncController::homeAction',  '_route' => 'hm_view_home',);
+            return array (  '_controller' => 'HM\\MainBundle\\Controller\\DefaultController::homeAction',  '_route' => 'hm_view_home',);
         }
 
         // hm_view_feed
         if (0 === strpos($pathinfo, '/feed') && preg_match('#^/feed/(?P<userID>\\d*)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'hm_view_feed')), array (  '_controller' => 'HM\\MainBundle\\Controller\\SyncController::feedAction',));
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'hm_view_feed')), array (  '_controller' => 'HM\\MainBundle\\Controller\\DefaultController::feedAction',));
         }
 
         // hm_view_search
         if (0 === strpos($pathinfo, '/search') && preg_match('#^/search/(?P<region>[^/]++)/(?P<summonerID>\\d*)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'hm_view_search')), array (  '_controller' => 'HM\\MainBundle\\Controller\\SyncController::searchAction',));
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'hm_view_search')), array (  '_controller' => 'HM\\MainBundle\\Controller\\DefaultController::searchAction',));
         }
 
         // hm_view_profile
         if (0 === strpos($pathinfo, '/profile') && preg_match('#^/profile/(?P<region>[^/]++)/(?P<summonerID>\\d*)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'hm_view_profile')), array (  '_controller' => 'HM\\MainBundle\\Controller\\SyncController::profileAction',));
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'hm_view_profile')), array (  '_controller' => 'HM\\MainBundle\\Controller\\DefaultController::profileAction',));
         }
 
         if (0 === strpos($pathinfo, '/s')) {
             if (0 === strpos($pathinfo, '/sign')) {
                 // hm_view_signup
                 if ($pathinfo === '/signup') {
-                    return array (  '_controller' => 'HM\\MainBundle\\Controller\\SyncController::signupAction',  '_route' => 'hm_view_signup',);
+                    return array (  '_controller' => 'HM\\MainBundle\\Controller\\DefaultController::signupAction',  '_route' => 'hm_view_signup',);
                 }
 
                 // hm_view_signin
                 if ($pathinfo === '/signin') {
-                    return array (  '_controller' => 'HM\\MainBundle\\Controller\\SyncController::signinAction',  '_route' => 'hm_view_signin',);
+                    return array (  '_controller' => 'HM\\MainBundle\\Controller\\DefaultController::signinAction',  '_route' => 'hm_view_signin',);
                 }
 
             }

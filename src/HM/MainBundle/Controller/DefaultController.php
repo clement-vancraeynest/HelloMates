@@ -13,6 +13,7 @@ class DefaultController extends Controller {
     
     public function homeAction(){
         //Renvoi la vue home uniquement
+        return $this->render('HMMainBundle:Default:index.html.twig');
     }
     
     public function feedAction($userID) {
@@ -20,24 +21,29 @@ class DefaultController extends Controller {
         //sync all summoner matches
         //get all matches IN(summoners) group by matches ?
         //Création d'un structure pour l'affichage 1 match = 1 ligne
+        return $this->render('HMMainBundle:Default:index.html.twig');
     }
     
     public function searchAction($region, $summonerName){
         //sync du summoner
+        return $this->render('HMMainBundle:Default:index.html.twig');
     }
     
     public function profileAction($region, $summonerID){
         //sync du summoner
         //synch des match recent
         //Créaation de la structure (uniquement pour un sumoner)
+        return $this->render('HMMainBundle:Default:index.html.twig');
     }
     
     public function signupAction(){
         //appel de la vue d'inscription
+        return $this->render('HMMainBundle:Default:index.html.twig');
     }
     
     public function signinAction(){
         //Appel de la vue de connexion
+        return $this->render('HMMainBundle:Default:index.html.twig');
     }
 
 }

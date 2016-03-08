@@ -2,3 +2,6 @@ services:
     hm_main.riotApi:
         class: HM\MainBundle\RiotApi\HMRiotApi
         arguments: [%riotApi_key%]
+    hm_main.syncData:
+        class: HM\MainBundle\SyncData\HMSyncData
+        arguments: ['@hm_main.riotApi', '@doctrine.orm.entity_manager']
