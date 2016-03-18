@@ -1,13 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}HelloMates{% endblock %}</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
         {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <div class="container-fluid">
+            <header class="row" style="background-color: black;">
+                <div class="col-sm-2" style="color:white;">HelloMates</div>
+                <div class="col-sm-8">
+                    <form class="form-inline" action="{{ path('hm_sync_summoner_name', {'region': 'euw', 'name': 'kahélaim'}) }}">
+                        <input id="summonerName" class="form-control" type="text" placeholder="Summoner name...">
+                        <select>
+                            <option value="euw">Europe west</option>
+                            <option value="na">North america</option>
+                        </select>
+                        <button class="btn btn-primary">Search</button>
+                    </form>
+                </div>
+                <div class="col-sm-2">
+                    <form action="{{ path('fos_user_registration_register') }}"><button class="btn btn-primary">Sign up</button></form>
+                    <form action="{{ path('fos_user_security_login') }}"><button class="btn btn-primary">Sign in</button></form>
+                </div>
+            </header>
+            {% block content %}{% endblock %}
+            <footer class="row">
+
+            </footer>
+        </div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>

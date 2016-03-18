@@ -4,12 +4,10 @@ hm_view_index:
     defaults: { _controller: HMMainBundle:Default:index}
 hm_view_home:
     path: /home
-    defaults: { _controller: HMMainBundle:Default:home}
+    defaults: { _controller: HMMainBundle:Default:index}
 hm_view_feed:
-    path: /feed/{userID}
+    path: /feed
     defaults: { _controller: HMMainBundle:Default:feed}
-    requirements:
-        userID: \d*
 hm_view_search:
     path: /search/{region}/{summonerID}
     defaults: { _controller: HMMainBundle:Default:search}

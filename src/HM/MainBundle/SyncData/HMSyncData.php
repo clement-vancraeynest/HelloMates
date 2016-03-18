@@ -35,7 +35,7 @@ class HMSyncData {
      */
     private function _getSummoner($id) {
         $rep = $this->em->getRepository('HMMainBundle:Summoner');
-        $summoner = $rep->findOneBySummonerID($id);
+        $summoner = $rep->findOneBySummonerID($id);//A changer pour y intégrer la région
         if (!isset($summoner))
             $summoner = new \HM\MainBundle\Entity\Summoner;
         return $summoner;

@@ -8,7 +8,7 @@ class DefaultController extends Controller {
 
     public function indexAction() {
         //Si connecté renvoi vers le feed sinon vers la home
-        return $this->render('HMMainBundle:Default:index.html.twig');
+        return $this->render('HMMainBundle:Home:index.html.twig');
     }
     
     public function homeAction(){
@@ -16,7 +16,7 @@ class DefaultController extends Controller {
         return $this->render('HMMainBundle:Default:index.html.twig');
     }
     
-    public function feedAction($userID) {
+    public function feedAction() {
         //get summoner followed
         //sync all summoner matches
         //get all matches IN(summoners) group by matches ?
@@ -26,6 +26,7 @@ class DefaultController extends Controller {
     
     public function searchAction($region, $summonerName){
         //sync du summoner
+        $summoner = $this->get('hm_main.syncData')->syncSummonerName($region, $summonerName);
         return $this->render('HMMainBundle:Default:index.html.twig');
     }
     
