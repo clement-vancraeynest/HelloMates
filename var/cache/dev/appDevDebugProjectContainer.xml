@@ -830,12 +830,6 @@
             <argument>C:\wamp\www\HelloMates\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.mn.xlf</argument>
             <argument>C:\wamp\www\HelloMates\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.mn.xlf</argument>
           </argument>
-          <argument key="nb" type="collection">
-            <argument>C:\wamp\www\HelloMates\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.nb.xlf</argument>
-            <argument>C:\wamp\www\HelloMates\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.nb.xlf</argument>
-            <argument>C:\wamp\www\HelloMates\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.nb.yml</argument>
-            <argument>C:\wamp\www\HelloMates\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.nb.yml</argument>
-          </argument>
           <argument key="nl" type="collection">
             <argument>C:\wamp\www\HelloMates\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.nl.xlf</argument>
             <argument>C:\wamp\www\HelloMates\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.nl.xlf</argument>
@@ -843,8 +837,12 @@
             <argument>C:\wamp\www\HelloMates\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.nl.yml</argument>
             <argument>C:\wamp\www\HelloMates\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.nl.yml</argument>
           </argument>
+          <argument key="nn" type="collection">
+            <argument>C:\wamp\www\HelloMates\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.nn.xlf</argument>
+          </argument>
           <argument key="no" type="collection">
             <argument>C:\wamp\www\HelloMates\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.no.xlf</argument>
+            <argument>C:\wamp\www\HelloMates\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.no.xlf</argument>
             <argument>C:\wamp\www\HelloMates\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.no.xlf</argument>
           </argument>
           <argument key="pl" type="collection">
@@ -962,6 +960,10 @@
           <argument key="ua" type="collection">
             <argument>C:\wamp\www\HelloMates\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.ua.xlf</argument>
           </argument>
+          <argument key="nb" type="collection">
+            <argument>C:\wamp\www\HelloMates\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.nb.yml</argument>
+            <argument>C:\wamp\www\HelloMates\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.nb.yml</argument>
+          </argument>
         </argument>
       </argument>
       <argument type="collection"/>
@@ -973,6 +975,7 @@
           <argument>en</argument>
         </argument>
       </call>
+      <autowiring-type>Symfony\Component\Translation\TranslatorInterface</autowiring-type>
     </service>
     <service id="translation.loader.php" class="Symfony\Component\Translation\Loader\PhpFileLoader">
       <tag name="translation.loader" alias="php"/>
@@ -1438,9 +1441,12 @@
             <argument type="service" id="service_container"/>
             <argument type="collection">
               <argument key="validator.expression">validator.expression</argument>
+              <argument key="Symfony\Component\Validator\Constraints\ExpressionValidator">validator.expression</argument>
               <argument key="Symfony\Component\Validator\Constraints\EmailValidator">validator.email</argument>
               <argument key="security.validator.user_password">security.validator.user_password</argument>
+              <argument key="Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator">security.validator.user_password</argument>
               <argument key="doctrine.orm.validator.unique">doctrine.orm.validator.unique</argument>
+              <argument key="Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator">doctrine.orm.validator.unique</argument>
             </argument>
           </service>
         </argument>
@@ -1481,7 +1487,6 @@
     </service>
     <service id="validator.expression" class="Symfony\Component\Validator\Constraints\ExpressionValidator">
       <tag name="validator.constraint_validator" alias="validator.expression"/>
-      <argument type="service" id="property_accessor"/>
     </service>
     <service id="validator.email" class="Symfony\Component\Validator\Constraints\EmailValidator">
       <tag name="validator.constraint_validator" alias="Symfony\Component\Validator\Constraints\EmailValidator"/>
@@ -1907,7 +1912,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>56df5e444e3db1.93946739</argument>
+            <argument>56ec41c9265594.75067730</argument>
           </service>
         </argument>
       </argument>
@@ -2208,7 +2213,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>56df5e444e3db1.93946739</argument>
+            <argument>56ec41c9265594.75067730</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -3233,6 +3238,7 @@
       <call method="pushHandler">
         <argument type="service" id="monolog.handler.debug"/>
       </call>
+      <autowiring-type>Psr\Log\LoggerInterface</autowiring-type>
     </service>
     <service id="swiftmailer.mailer.default.transport" class="Swift_Transport_SpoolTransport">
       <argument type="service" id="swiftmailer.mailer.default.transport.eventdispatcher"/>

@@ -111,12 +111,12 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         // hm_view_home
         if ($pathinfo === '/home') {
-            return array (  '_controller' => 'HM\\MainBundle\\Controller\\DefaultController::homeAction',  '_route' => 'hm_view_home',);
+            return array (  '_controller' => 'HM\\MainBundle\\Controller\\DefaultController::indexAction',  '_route' => 'hm_view_home',);
         }
 
         // hm_view_feed
-        if (0 === strpos($pathinfo, '/feed') && preg_match('#^/feed/(?P<userID>\\d*)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'hm_view_feed')), array (  '_controller' => 'HM\\MainBundle\\Controller\\DefaultController::feedAction',));
+        if ($pathinfo === '/feed') {
+            return array (  '_controller' => 'HM\\MainBundle\\Controller\\DefaultController::feedAction',  '_route' => 'hm_view_feed',);
         }
 
         // hm_view_search
